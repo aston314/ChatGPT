@@ -31,9 +31,12 @@ jobs:
       - name: Install step
         run: "npm install"
 
+      - name: Build step
+        run: "tsc"
+
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "aston314-chatgpt-47"
-          entrypoint: "app.tc"
+          entrypoint: "dist/app.js"
           root: ""
