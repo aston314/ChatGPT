@@ -3,7 +3,8 @@ import bodyParser from "body-parser";
 import axios from "axios";
 import https from "https";
 import { encode } from "gpt-3-encoder";
-import { randomUUID } from "crypto";
+// import { randomUUID } from "crypto";
+import { randomUUID } from "npm:crypto-js@4.2.0";
 
 // Constants for the server and API configuration
 const port = 3040;
