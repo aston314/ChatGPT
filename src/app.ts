@@ -1,18 +1,9 @@
-// import express, { Request, Response, NextFunction } from "express";
-// import bodyParser from "body-parser";
-// import axios from "axios";
-// import https from "https";
-// import { encode } from "gpt-3-encoder";
-// import { randomUUID } from "crypto";
-import express, { Request, Response, NextFunction } from "npm:express@4.1.8";
-import bodyParser from "npm:body-parser@1.20.2";
-import axios from "npm:axios@1.6.8";
-// import https from "npm:https@1";
-import { Agent } from "https://deno.land/std@0.158.0/node/https.ts";
-import { encode } from "npm:gpt-3-encoder@1.1.4";
-// import { randomUUID } from "npm:crypto-js@4";
-// import { randomUUID } from "https://deno.land/std@0.221.0/crypto/crypto.ts";
-import { randomUUID } from "https://deno.land/std@0.158.0/node/crypto.ts";
+import express, { Request, Response, NextFunction } from "express";
+import bodyParser from "body-parser";
+import axios from "axios";
+import https from "https";
+import { encode } from "gpt-3-encoder";
+import { randomUUID } from "crypto";
 
 // Constants for the server and API configuration
 const port = 3040;
