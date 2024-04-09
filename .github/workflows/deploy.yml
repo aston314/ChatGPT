@@ -36,4 +36,4 @@ jobs:
         with:
           project: "aston314-chatgpt-47"
           entrypoint: "app.js"
-          root: "/"
+          root: "./"
