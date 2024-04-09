@@ -1,11 +1,9 @@
-import express, { Request, Response, NextFunction } from "npm:express@4";
-import bodyParser from "npm:body-parser@1";
-import axios from "npm:axios@1";
-// import https from "npm:https@1";
-import { Agent } from "https://deno.land/std@0.158.0/node/https.ts";
-import { encode } from "npm:gpt-3-encoder@1";
-// import { randomUUID } from "npm:crypto-js@4";
-// import { randomUUID } from "https://deno.land/std@0.221.0/crypto/crypto.ts";
+import express, { Request, Response, NextFunction } from "express";
+import bodyParser from "body-parser";
+import axios from "axios";
+import https from "https";
+import { encode } from "gpt-3-encoder";
+import { randomUUID } from "crypto";
 
 // Constants for the server and API configuration
 const port = 3040;
@@ -62,7 +60,7 @@ async function* StreamCompletion(data: any) {
 
 // Setup axios instance for API requests with predefined configurations
 const axiosInstance = axios.create({
-  httpsAgent: new Agent({ rejectUnauthorized: false }),
+  httpsAgent: new https.Agent({ rejectUnauthorized: false }),
   headers: {
     accept: "*/*",
     "accept-language": "en-US,en;q=0.9",
@@ -84,7 +82,7 @@ const axiosInstance = axios.create({
 
 // Function to get a new session ID and token from the OpenAI API
 async function getNewSessionId() {
-  let newDeviceId = crypto.randomUUID();//randomUUID()
+  let newDeviceId = randomUUID();
   const response = await axiosInstance.post(
     `${baseUrl}/backend-anon/sentinel/chat-requirements`,
     {},
@@ -121,13 +119,13 @@ async function handleChatCompletion(req: Request, res: Response) {
         author: { role: message.role },
         content: { content_type: "text", parts: [message.content] },
       })),
-      parent_message_id: crypto.randomUUID(),//randomUUID(),
+      parent_message_id: randomUUID(),
       model: "text-davinci-002-render-sha",
       timezone_offset_min: -180,
       suggestions: [],
       history_and_training_disabled: true,
       conversation_mode: { kind: "primary_assistant" },
-      websocket_request_id: crypto.randomUUID(),//randomUUID(),
+      websocket_request_id: randomUUID(),
     };
 
     let promptTokens = 0;
