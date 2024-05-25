@@ -1,8 +1,7 @@
 {
 	"compilerOptions": {
-		"esModuleInterop": true,
-	        "module": "ES6",
-	        "target": "ES6",
+		"target": "es2022",
+		"module": "ESNext",
 		"strict": true,
 		"declaration": true,
 		"removeComments": true,
@@ -25,8 +24,5 @@
 		"noFallthroughCasesInSwitch": false
 	},
 	"include": ["src"],
-	"exclude": ["node_modules", "dist"],
-	"ts-node": {
-        "esm": true
-    }
+	"exclude": ["node_modules", "dist"]
 }
