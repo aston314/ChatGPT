@@ -5,8 +5,6 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "start": "tsc && node dist/app.js",
-    "watch": "tsc-watch --onSuccess \"node dist/app.js\"",
     "build": "tsc"
   },
   "author": "Pawan Osman",
