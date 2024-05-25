@@ -12,4 +12,4 @@ micros:
       - dist
       #- static
       - package.json
-    run: node ./dist/index.js
+    run: node ./dist/app.js
