@@ -7,9 +7,10 @@ micros:
     primary: true
     #dev: npm run dev
     commands:
-      - tsc && npm run build 
+      - npm run build 
     include:
       - dist
       #- static
       - package.json
+      - package-lock.json
     run: node dist/app.js
