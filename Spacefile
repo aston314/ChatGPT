@@ -5,9 +5,9 @@ micros:
     src: .  
     engine: nodejs16
     primary: true
-    dev: npm run dev
+    #dev: npm run dev
     commands:
-      - npm run build 
+      - tsc && npm run build 
     include:
       - dist
       #- static
