@@ -13,4 +13,4 @@ micros:
       #- static
       - package.json
       - package-lock.json
-    run: tsc && node dist/app.js
+    run: node dist/app.js
